@@ -57,6 +57,18 @@ Please download Sciter dynamic library yourself.
 
 - run `cargo run`
 
+### Automated setup on Debian/Ubuntu
+
+A helper script is available at `scripts/setup_env.sh` which installs
+the required packages, fetches submodules and builds the project.
+Run the script from the repository root:
+
+```sh
+./scripts/setup_env.sh
+```
+
+Any additional arguments are passed directly to `cargo build`.
+
 ## [Build](https://rustdesk.com/docs/en/dev/build/)
 
 ## How to build on Linux
