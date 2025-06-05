@@ -24,7 +24,11 @@ if [ ! -d "$HOME/vcpkg" ]; then
     (cd "$HOME/vcpkg" && git checkout 2023.04.15 && ./bootstrap-vcpkg.sh)
 fi
 export VCPKG_ROOT="$HOME/vcpkg"
-"$VCPKG_ROOT"/vcpkg install libvpx libyuv opus aom
+# The repository contains a vcpkg manifest (vcpkg.json) so
+# packages are defined there. Running `vcpkg install` without
+# additional package arguments ensures the dependencies
+# specified in the manifest are installed correctly.
+"$VCPKG_ROOT"/vcpkg install
 
 # Download sciter library
 mkdir -p target/debug
